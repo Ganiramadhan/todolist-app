@@ -1,2 +1,3 @@
 npm install 
-npm run dev 
+
+npm run dev to run client
