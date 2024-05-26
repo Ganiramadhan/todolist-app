@@ -1,4 +1,5 @@
-The todolist application is created using suabase, express js, react js and node js technologies
+
+Simple todo application that allows users to add, delete, and manage their list of tasks. The application is built using React and features responsive design, modern gradients, and integration wit…
 
 ==== STEP TO RUN CLIENT ======
 - cd client
