@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "./components/Navbar";
 import Swal from 'sweetalert2';
-import { FaTrash } from 'react-icons/fa';
-
-
+import { FaTrash, FaPlus } from 'react-icons/fa';
 
 const Todolist = () => {
     const [todos, setTodos] = useState([]);
@@ -56,7 +54,7 @@ const Todolist = () => {
     
         const result = await Swal.fire({
             title: 'Are you sure?',
-            html: `You are about to delete the following todo,<strong>${description}</strong>`,
+            html: `You are about to delete the following todo, <strong>${description}</strong>`,
             icon: 'warning',
             showCancelButton: true,
             confirmButtonText: 'Yes, delete it!',
@@ -83,43 +81,41 @@ const Todolist = () => {
             Swal.fire('Cancelled', 'Your todo is safe :)', 'error');
         }
     };
-    
-    
-    
 
     return (
         <>
             <Navbar />
-            <div className="container mx-auto mt-8 p-8 bg-gray-100 rounded-lg shadow-md">
-                <h1 className="text-2xl font-bold mb-4">Todo List</h1>
-                <div className="mb-4">
+            <div className="container mx-auto mt-8 p-8 bg-gradient-to-br from-blue-500 to-white rounded-lg shadow-lg">
+                <h1 className="text-3xl font-bold mb-6 text-white">Todo List</h1>
+                <div className="mb-6 flex flex-col sm:flex-row items-stretch">
                     <input
                         type="text"
                         value={newTodo}
                         onChange={(e) => setNewTodo(e.target.value)}
                         placeholder="Enter todo description"
-                        className="border border-gray-300 rounded px-2 py-1 mr-2 focus:outline-none focus:border-blue-500"
+                        className="flex-grow sm:w-96 border border-gray-300 rounded-l-lg px-4 py-2 mb-2 sm:mb-0 mr-0 sm:mr-2 focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-200 transition"
                     />
                     <button
                         onClick={handleAddTodo}
-                        className="bg-blue-500 text-white px-4 py-1 rounded focus:outline-none hover:bg-blue-600"
+                        className="bg-blue-600 text-white py-2 px-4 rounded-r-lg hover:bg-blue-700 transition focus:outline-none focus:ring-2 focus:ring-blue-400 flex items-center"
                     >
+                        <FaPlus className="mr-2" />
                         Add Todo
                     </button>
-                    {alertMessage && <div className="text-green-600">{alertMessage}</div>}
+                    {alertMessage && <div className="text-green-600 mt-2">{alertMessage}</div>}
                 </div>
                 <div className="grid grid-cols-1 gap-4">
                     {todos.map((todo) => (
                         <div
                             key={todo.id}
-                            className="bg-white p-4 rounded shadow-md flex items-center justify-between"
+                            className="bg-white p-4 rounded-lg shadow-md flex items-center justify-between hover:bg-gray-100 transition"
                         >
-                            <p className="text-sm text-gray-600">{todo.description}</p>
+                            <p className="text-gray-700">{todo.description}</p>
                             <button
                                 onClick={() => handleDeleteTodo(todo.id)}
-                                className="text-red-500"
+                                className="text-red-500 hover:text-red-700 transition"
                             >
-                             <FaTrash />
+                                <FaTrash />
                             </button>
                         </div>
                     ))}

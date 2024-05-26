@@ -8,11 +8,11 @@ const Navbar = () => {
             <div className="container mx-auto flex justify-between items-center">
                 <div className="text-2xl font-bold">
                     <Link to="/" className="flex items-center">
-                    Todo App
+                        <span className="text-blue-500 mr-1">Gani</span> Pedia
                     </Link>
                 </div>
-                <ul className="flex space-x-4">
-                    <li className="hover:text-gray-300">
+                <ul className="flex space-x-4 items-center">
+                    <li className="hover:text-blue-500">
                         <Link to="/setting" className="flex items-center">
                             <FaCog className="mr-1" />
                             
